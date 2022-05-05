@@ -1,21 +1,16 @@
-class ManpagesJa < Formula
-  desc "Japanese manpages, translated by JM Project"
+class ManpagesJaExpect < Formula
+  desc "Japanese manpages of GNU expect, translated by JM Project"
   homepage "https://linuxjm.osdn.jp"
-  head "https://github.com/reishoku/manpages-ja.git", branch: "main"
+  head "https://github.com/reishoku/manpages-ja-expect.git", branch: "main"
 
   # This formula depends on "man", but the command exist both on macOS and Linux (distros).
   depends_on "man-db"
   on_macos do
-    depends_on "coreutils"
-    depends_on "findutils"
     depends_on "expect"
   end
 
-  conflicts_with "manpages-ja-coreutils", "manpages-ja-findutils",
-    because: "manpages-ja is metapackage"
-
   def install
-    share.install Dir["*/share/*"]
+    share.install Dir["share/*"]
   end
 
   def caveats
