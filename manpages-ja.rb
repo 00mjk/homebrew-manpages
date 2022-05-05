@@ -11,7 +11,7 @@ class ManpagesJa < Formula
     depends_on "expect"
   end
 
-  conflicts_with "manpages-ja-coreutils", "manpages-ja-findutils", "manpages-ja-expect"
+  conflicts_with "manpages-ja-coreutils", "manpages-ja-findutils", "manpages-ja-expect",
     because: "manpages-ja is metapackage"
 
   def install
