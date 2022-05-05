@@ -11,11 +11,13 @@ class ManpagesJa < Formula
     depends_on "expect"
   end
 
-  conflicts_with "manpages-ja-coreutils", "manpages-ja-findutils",
+  conflicts_with "manpages-ja-coreutils", "manpages-ja-findutils", "manpages-ja-expect"
     because: "manpages-ja is metapackage"
 
   def install
-    share.install Dir["*/share/*"]
+    share.install Dir["coreutils/share/*"]
+    share.install Dir["findutils/share/*"]
+    share.install Dir["expect/share/*"]
   end
 
   def caveats
