@@ -15,16 +15,17 @@ class ManpagesJa < Formula
     because: "manpages-ja is metapackage"
 
   def install
-    share.install Dir["coreutils/share/*"]
-    share.install Dir["findutils/share/*"]
-    share.install Dir["expect/share/*"]
+    prefix.install Dir["coreutils"]
+    prefix.install Dir["findutils"]
+    prefix.install Dir["expect"]
   end
 
   def caveats
     <<~EOS
-      Make sure you add the following directory to your MANPATH:
+      In order to use manpages-ja, you should manually modify MANPATH environmental variable.
+      To acquire the list, simply run (bash):
 
-        echo MANPATH="$(brew --prefix)/share/man:${MANPATH}" | tee -a ~/.bashrc
+        gfind $(brew --prefix manpages-ja)/*/share/man -maxdepth 0 -type d
     EOS
   end
 end
