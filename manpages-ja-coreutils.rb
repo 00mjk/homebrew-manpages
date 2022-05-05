@@ -4,6 +4,7 @@ class ManpagesJaCoreutils < Formula
   head "https://github.com/reishoku/manpages-ja-coreutils.git", branch: "main"
 
   # This formula depends on "man", but the command exist both on macOS and Linux (distros).
+  depends_on "man-db"
   on_macos do
     depends_on "coreutils"
   end
