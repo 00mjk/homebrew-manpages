@@ -11,4 +11,12 @@ class ManpagesJaCoreutils < Formula
   def install
     share.install Dir["share/*"]
   end
+
+  def caveats
+    <<~EOS
+      Make sure you add the following directory to your MANPATH:
+
+        echo MANPATH="$(brew --prefix)/share/man/ja:${PATH}" | tee -a ~/.bashrc
+    EOS
+  end
 end
