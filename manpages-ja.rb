@@ -10,7 +10,7 @@ class ManpagesJa < Formula
     depends_on "findutils"
   end
 
-  conflicts_with "manpages-ja-coreutils" "manpages-ja-findutils",
+  conflicts_with "manpages-ja-coreutils", "manpages-ja-findutils",
     because: "manpages-ja is metapackage"
 
   def install
@@ -21,7 +21,7 @@ class ManpagesJa < Formula
     <<~EOS
       Make sure you add the following directory to your MANPATH:
 
-        echo MANPATH="$(brew --prefix)/share/man/ja:${MANPATH}" | tee -a ~/.bashrc
+        echo MANPATH="$(brew --prefix)/share/man:${MANPATH}" | tee -a ~/.bashrc
     EOS
   end
 end
